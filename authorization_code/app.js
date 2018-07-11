@@ -16,7 +16,8 @@ var cookieParser = require('cookie-parser');
 
 var client_id = process.env.CLIENT_ID || config.CLIENT_ID; // Your client id
 var client_secret = process.env.CLIENT_SECRET || config.CLIENT_SECRET; // Your secret id
-var myPageUrl = process.env.myPageUrl || 'http://localhost:3000/'
+var myPageUrl = process.env.myPageUrl || 'http://localhost:3000/';
+var PORT = process.env.PORT || 8888;
 
 console.log('client_id:', client_id)
 console.log('client_secret:', client_secret)
@@ -149,5 +150,5 @@ app.get('/refresh_token', function(req, res) {
   });
 });
 
-console.log('Listening on 8888');
-app.listen(8888);
+console.log('Listening on process.env.PORT');
+app.listen(process.env.PORT);
